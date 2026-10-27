@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Interaktif Matematika - Perbandingan Pecahan Desimal</title>
+<style>
+:root{--blue:#2563eb;--green:#16a34a;--red:#dc2626;--bg:#eef6ff;--dark:#17324d;--gold:#f59e0b}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#eaf5ff,#f4fff8);color:var(--dark)}
+.container{max-width:1050px;margin:auto;padding:22px}
+header{background:linear-gradient(135deg,#2563eb,#0ea5e9);color:white;border-radius:22px;padding:28px;text-align:center;box-shadow:0 8px 22px #0002}
+header h1{margin:0 0 8px;font-size:32px}
+header p{margin:0;font-size:17px}
+.nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:18px 0}
+.nav button,.btn{border:0;border-radius:12px;padding:11px 17px;font-weight:bold;cursor:pointer;background:white;color:var(--blue);box-shadow:0 3px 10px #0002}
+.nav button.active,.btn.primary{background:var(--blue);color:white}
+.section{display:none;background:white;border-radius:20px;padding:24px;margin-top:15px;box-shadow:0 5px 18px #0001}
+.section.active{display:block}
+h2{color:var(--blue);margin-top:0}
+.card{background:#f8fbff;border:2px solid #dbeafe;border-radius:16px;padding:18px;margin:14px 0}
+.example{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;font-size:26px;font-weight:bold}
+.numberline{position:relative;height:95px;margin:28px 25px 8px;border-bottom:5px solid #334155}
+.tick{position:absolute;bottom:-11px;width:3px;height:22px;background:#334155}
+.label{position:absolute;top:20px;transform:translateX(-50%);font-size:14px;font-weight:bold}
+.barwrap{width:230px}
+.bar{height:35px;background:#e5e7eb;border-radius:9px;overflow:hidden;border:2px solid #94a3b8}
+.fill{height:100%;background:linear-gradient(90deg,#60a5fa,#2563eb)}
+.compare{font-size:38px;color:var(--gold);min-width:55px;text-align:center}
+.rule{font-size:18px;line-height:1.6}
+.question{font-size:22px;font-weight:bold;margin-bottom:18px}
+.options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.option{padding:16px;border:2px solid #bfdbfe;border-radius:14px;background:#fff;cursor:pointer;font-size:19px;font-weight:bold}
+.option:hover{background:#eff6ff}
+.option.correct{background:#dcfce7;border-color:#16a34a}
+.option.wrong{background:#fee2e2;border-color:#dc2626}
+.feedback{margin-top:15px;padding:14px;border-radius:12px;font-weight:bold;display:none}
+.feedback.show{display:block}
+.scorebox{text-align:center;background:#eff6ff;border-radius:18px;padding:18px;margin-bottom:18px}
+.score{font-size:36px;color:var(--blue);font-weight:bold}
+.progress{height:12px;background:#e5e7eb;border-radius:8px;overflow:hidden;margin:10px 0}
+.progress span{display:block;height:100%;background:#16a34a;width:0%}
+.small{font-size:14px;color:#475569}
+table{border-collapse:collapse;width:100%;margin-top:12px}
+td,th{border:1px solid #cbd5e1;padding:10px;text-align:center}
+th{background:#dbeafe}
+footer{text-align:center;margin:25px;color:#64748b}
+@media(max-width:650px){.options{grid-template-columns:1fr}.example{font-size:22px}header h1{font-size:25px}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>🎯 Perbandingan Pecahan Desimal</h1>
+<p>Matematika Kelas VI • Belajar, Bandingkan, dan Tantang Dirimu!</p>
+</header>
+
+<div class="nav">
+<button class="active" onclick="show('materi',this)">📚 Materi</button>
+<button onclick="show('contoh',this)">👀 Contoh</button>
+<button onclick="show('latihan',this)">🎮 Latihan</button>
+<button onclick="show('tantangan',this)">🏆 Tantangan</button>
+</div>
+
+<section id="materi" class="section active">
+<h2>📚 1. Apa itu perbandingan pecahan desimal?</h2>
+<div class="card rule">
+Untuk membandingkan dua bilangan desimal, kita menentukan bilangan mana yang <b>lebih besar (&gt;)</b>, <b>lebih kecil (&lt;)</b>, atau <b>sama dengan (=)</b>.
+</div>
+<div class="card">
+<h3>🔎 Langkah mudah</h3>
+<ol class="rule">
+<li>Bandingkan angka pada <b>bagian satuan</b>.</li>
+<li>Jika sama, bandingkan angka pada <b>persepuluhan</b>.</li>
+<li>Jika masih sama, lanjutkan ke angka berikutnya.</li>
+<li>Tambahkan nol di belakang desimal jika diperlukan.</li>
+</ol>
+<p><b>Contoh:</b> 0,7 dan 0,65 → 0,70 dan 0,65 → karena 70 per seratus lebih besar daripada 65 per seratus, maka <b>0,7 &gt; 0,65</b>.</p>
+</div>
+<div class="card">
+<h3>💡 Ingat!</h3>
+<p class="rule">0,5 = 0,50 = 0,500. Menambahkan nol di belakang koma <b>tidak mengubah nilai</b> bilangan.</p>
+</div>
+</section>
+
+<section id="contoh" class="section">
+<h2>👀 2. Contoh Interaktif</h2>
+<div class="card">
+<div class="example">
+<div class="barwrap"><div>0,6</div><div class="bar"><div class="fill" style="width:60%"></div></div></div>
+<div class="compare">&gt;</div>
+<div class="barwrap"><div>0,45</div><div class="bar"><div class="fill" style="width:45%"></div></div></div>
+</div>
+<p style="text-align:center">Jadi, <b>0,6 &gt; 0,45</b></p>
+</div>
+<div class="card">
+<h3>📏 Garis Bilangan</h3>
+<div class="numberline">
+<div class="tick" style="left:0%"></div><div class="label" style="left:0%">0</div>
+<div class="tick" style="left:25%"></div><div class="label" style="left:25%">0,25</div>
+<div class="tick" style="left:50%"></div><div class="label" style="left:50%">0,5</div>
+<div class="tick" style="left:75%"></div><div class="label" style="left:75%">0,75</div>
+<div class="tick" style="left:100%"></div><div class="label" style="left:100%">1</div>
+</div>
+<p>Semakin ke kanan letak bilangan pada garis bilangan, semakin <b>besar</b> nilainya.</p>
+</div>
+<div class="card">
+<h3>📊 Contoh lain</h3>
+<table>
+<tr><th>Bilangan</th><th>Samakan tempat desimal</th><th>Hasil</th></tr>
+<tr><td>0,8 dan 0,75</td><td>0,80 dan 0,75</td><td><b>0,8 &gt; 0,75</b></td></tr>
+<tr><td>1,2 dan 1,20</td><td>1,20 dan 1,20</td><td><b>1,2 = 1,20</b></td></tr>
+<tr><td>0,36 dan 0,4</td><td>0,36 dan 0,40</td><td><b>0,36 &lt; 0,4</b></td></tr>
+</table>
+</div>
+</section>
+
+<section id="latihan" class="section">
+<h2>🎮 3. Latihan Cepat</h2>
+<div class="scorebox">Skor: <span class="score" id="score">0</span> / <span id="total">5</span>
+<div class="progress"><span id="prog"></span></div></div>
+<div id="quiz"></div>
+<button class="btn primary" onclick="nextQuestion()">Soal Berikutnya ➜</button>
+<button class="btn" onclick="resetQuiz()">🔄 Ulangi</button>
+</section>
+
+<section id="tantangan" class="section">
+<h2>🏆 4. Tantangan Bintang</h2>
+<div class="card">
+<div class="question">Urutkan dari yang terkecil: 0,7 ; 0,56 ; 0,65 ; 0,75</div>
+<div class="options">
+<button class="option" onclick="challenge(this,false)">0,75 – 0,7 – 0,65 – 0,56</button>
+<button class="option" onclick="challenge(this,true)">0,56 – 0,65 – 0,7 – 0,75</button>
+<button class="option" onclick="challenge(this,false)">0,65 – 0,56 – 0,75 – 0,7</button>
+<button class="option" onclick="challenge(this,false)">0,56 – 0,7 – 0,75 – 0,65</button>
+</div>
+<div id="challengeFeedback" class="feedback"></div>
+</div>
+<div class="card">
+<h3>⭐ Misi Guru Kecil</h3>
+<p>Carilah dua benda di kelas yang dapat dibandingkan berdasarkan panjang, berat, atau jumlah. Tuliskan hasil pengukuran dalam bentuk desimal, lalu buat tanda <b>&gt;, &lt;, atau =</b>.</p>
+</div>
+</section>
+
+<footer>Media Pembelajaran Interaktif • Matematika Kelas VI • Perbandingan Pecahan Desimal</footer>
+</div>
+
+<script>
+const questions=[
+{q:"Manakah yang lebih besar?",a:["0,7","0,65","0,56","0,06"],c:0,e:"0,7 = 0,70. Karena 70 > 65, maka 0,7 > 0,65."},
+{q:"Tentukan tanda yang tepat: 0,45 ___ 0,5",a:[">","<","=","≠"],c:1,e:"0,5 = 0,50. Jadi 0,45 < 0,50."},
+{q:"Tentukan tanda yang tepat: 0,80 ___ 0,8",a:[">","<","=","≠"],c:2,e:"0,80 dan 0,8 memiliki nilai yang sama."},
+{q:"Manakah yang paling kecil?",a:["0,9","0,19","0,29","0,91"],c:1,e:"0,19 adalah yang paling kecil."},
+{q:"Urutan dari terbesar: 0,4 ; 0,75 ; 0,65 ; 0,8",a:["0,8–0,75–0,65–0,4","0,4–0,65–0,75–0,8","0,75–0,8–0,65–0,4","0,8–0,65–0,75–0,4"],c:0,e:"Urutan terbesar: 0,8 > 0,75 > 0,65 > 0,4."}
+];
+let qi=0,score=0,answered=false;
+function show(id,btn){
+ document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));
+ btn.classList.add('active');
+ if(id==='latihan') renderQuestion();
+}
+function renderQuestion(){
+ const x=questions[qi];
+ answered=false;
+ document.getElementById('quiz').innerHTML=
+ `<div class="card"><div class="question">Soal ${qi+1}. ${x.q}</div>
+ <div class="options">${x.a.map((v,i)=>`<button class="option" onclick="answer(this,${i})">${v}</button>`).join('')}</div>
+ <div id="feedback" class="feedback"></div></div>`;
+ document.getElementById('score').textContent=score;
+ document.getElementById('prog').style.width=(score/questions.length*100)+'%';
+}
+function answer(btn,i){
+ if(answered)return;
+ answered=true;
+ const x=questions[qi];
+ const opts=document.querySelectorAll('#quiz .option');
+ opts[x.c].classList.add('correct');
+ const fb=document.getElementById('feedback');
+ fb.classList.add('show');
+ if(i===x.c){score++;btn.classList.add('correct');fb.style.background='#dcfce7';fb.style.color='#166534';fb.textContent='✅ Benar! '+x.e;}
+ else{btn.classList.add('wrong');fb.style.background='#fee2e2';fb.style.color='#991b1b';fb.textContent='❌ Belum tepat. '+x.e;}
+ document.getElementById('score').textContent=score;
+ document.getElementById('prog').style.width=(score/questions.length*100)+'%';
+}
+function nextQuestion(){
+ if(!answered)return;
+ qi=(qi+1)%questions.length;
+ if(qi===0){alert('Latihan selesai! Skor kamu: '+score+'/'+questions.length+'. Hebat!');}
+ renderQuestion();
+}
+function resetQuiz(){qi=0;score=0;renderQuestion();}
+function challenge(btn,ok){
+ const fb=document.getElementById('challengeFeedback');
+ fb.classList.add('show');
+ if(ok){btn.classList.add('correct');fb.style.background='#dcfce7';fb.style.color='#166534';fb.textContent='🏆 Hebat! Urutan yang benar adalah 0,56 < 0,65 < 0,7 < 0,75.';}
+ else{btn.classList.add('wrong');fb.style.background='#fee2e2';fb.style.color='#991b1b';fb.textContent='💡 Coba samakan jumlah angka di belakang koma terlebih dahulu.';}
+}
+renderQuestion();
+</script>
+</body>
+</html>
